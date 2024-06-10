@@ -1,17 +1,19 @@
-version: '3.1'
+version: '1.1'
 
 services:
-  mysql:
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: example
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+  db:
+    image: postgres
     restart: always
     ports:
-      - 8080:80
+      - "5432:5432"
     environment:
-      PMA_HOST: mysql
-      MYSQL_ROOT_PASSWORD: example
+      POSTGRES_USER: nelsonrodriguez
+      POSTGRES_PASSWORD: Nelson451198
+      POSTGRES_DB: Pruebadocker
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
